@@ -1,0 +1,27 @@
+
+<mat-card>
+  <mat-card-content class="content">
+    <div class="container">
+      <div *ngIf="isLoading; else ProductProfile">
+        <div class="d-flex justify-content-start align-items-start" style="height: 100vh;">
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </div>
+      </div>
+      <ng-template #ProductProfile>
+        <div *ngIf="!isLoading">
+          <div class="row row-cols-1 g-3">
+            <div class="col-md-6 col-lg-4" *ngFor="let product of products; let i = index">
+              <app-product-card  [product]="product"  [index]="i" (click)="goToProductDetail(product.id)" ></app-product-card>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </mat-card-content>
+  <mat-card-footer>
+    <app-paginator [length]="totalProducts"
+                   [pageSize]="pageSize"
+                   (pageChange)="onPageChange($event)">
+    </app-paginator>
+  </mat-card-footer>
+</mat-card>

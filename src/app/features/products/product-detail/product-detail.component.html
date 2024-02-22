@@ -1,0 +1,86 @@
+<div class="container py-5">
+  <div *ngIf="isLoading; else ProductProfile">
+    <div class="d-flex justify-content-start align-items-start" style="height: 100vh;">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+  </div>
+
+
+  <ng-template #ProductProfile>
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-8">
+        <a class="btn btn-light mb-3"   (click)="reset()">← Back to products</a>
+
+        <div class="card mb-3 fade-in">
+          <div class="d-flex justify-content-center align-items-center mt-3">
+            <img [src]="product?.image" class="img-fluid" alt="Product Avatar">
+          </div>
+
+          <div class="row mt-5">
+            <div class="col-md-8">
+              <div class="d-flex flex-row gap-3 ps-md-5 align-items-center">
+                <img class="icon-img" src="assets/icons/id.png">
+                <div class="d-flex flex-column gap-2">
+                  <p class="m-0">ID</p>
+                  <p class="m-0">{{ product?.id }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 mt-3 mt-md-0">
+              <div class="d-flex flex-row gap-3 align-items-center">
+                <img class="icon-img" src="assets/icons/email.png">
+                <div class="d-flex flex-column gap-2">
+                  <p class="m-0">Title</p>
+                  <p class="m-0">{{ product?.title }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-md-5">
+            <div class="col-md-8">
+              <div class="d-flex flex-row gap-3 ps-md-5 align-items-center">
+                <img class="icon-img" src="assets/icons/name.png">
+                <div class="d-flex flex-column gap-2">
+                  <p class="m-0">Category</p>
+                  <p class="m-0">{{ product?.category }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 mt-3 mt-md-0">
+              <div class="d-flex flex-row gap-3 align-items-center">
+                <img class="icon-img" src="assets/icons/name.png">
+                <div class="d-flex flex-column gap-2">
+                  <p class="m-0">Price</p>
+                  <p class="m-0">{{ product?.price }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-md-5">
+            <div class="col-12">
+              <div class="card-body">
+                <!-- Existing content -->
+
+                <!-- Rating Section -->
+                <div class="d-flex align-items-center justify-content-center mt-3">
+                  <div class="rating">
+<!--                    <i class="  fas fa-star"></i>-->
+                    <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+                      <i class="{{ getStarClass(product?.rating?.rate ?? 0, i) }}"></i>
+                    </ng-container>
+                  </div>
+                  <p class="text-muted ms-2 mb-0">({{ product?.rating?.count }} reviews)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

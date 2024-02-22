@@ -1,0 +1,39 @@
+.product-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.content{
+  height:calc(100vh - 125px);
+  overflow-y: scroll;
+}
+.animation-card {
+  animation-name: slideInFromLeft;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.col-md-4 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (max-width: 768px) {
+  .col-md-4 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+}
+

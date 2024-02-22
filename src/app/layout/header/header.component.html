@@ -1,0 +1,9 @@
+<mat-toolbar color="primary" class="header-toolbar">
+  <span class="header-logo   d-none d-md-block">Products</span>
+  <div>Cart Items: {{ cartItemCount }}</div>
+  <mat-form-field appearance="fill" class="header-search mt-4" *ngIf="!hiddenInput()">
+    <mat-label>Search Product</mat-label>
+    <input appAutoFocus matInput #searchInput (keyup)="onKeyUp(searchInput.value)" placeholder="Search Product">
+  </mat-form-field>
+</mat-toolbar>
+

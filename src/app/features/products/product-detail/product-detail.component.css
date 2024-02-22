@@ -1,0 +1,54 @@
+.container {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.rating i {
+  color: #ffc107;
+  margin-right: 2px;
+}
+
+.card {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.img-fluid {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.icon-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.d-flex > div, .d-flex > p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card .row {
+  margin: 0;
+  padding: 10px 0;
+}
+
+@media (max-width: 576px) {
+  .img-fluid {
+    width: 100px;
+    height: 100px;
+  }
+
+  .icon-img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .card .row {
+    padding: 5px 0;
+  }
+}
+
